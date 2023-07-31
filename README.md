@@ -1,1 +1,1 @@
-A todo-list that adds input data and deletes them
+a todo-list created with react that adds and delete list item
