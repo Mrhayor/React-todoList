@@ -2,12 +2,13 @@ import { useState } from "react";
 // import {Link} from "react-router-dom";
 import  {useNavigate} from "react-router-dom";
 import TodoForm from './TodoForm';
-// import FullTodoList from './FullTodoList';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 export default function Todo (){
     const navigate = useNavigate()
     const [todos, setTodos] = useState([])
-    // const empty = "";
+
     function addTodo(title){
         setTodos((currentTodos) =>{
             return [
@@ -37,23 +38,34 @@ export default function Todo (){
                 {todos.map((todo) =>
                 {
                     const j = todo.title;
-                        // let k = j.length;
-                        // const nonSpaceRegex = /\S/g;
                     const l = j;
-                   
+
                     if(l.length >  11){
                         console.log(l.slice(0, 11))
                     }
                      
                     return( 
-                        <li key={todo.id} onClick={()=>{navigate("/FullTodoList", {state:{j}})}}>
-                            <button className="delete" onClick={() => deleteTodo(todo.id)}>X   </button>
+                        <>
+                        <div className="container">
+                            <div className="clicked">
+                         <FontAwesomeIcon className="icon" icon={faTrash}   key={todo.id} onClick={() => deleteTodo(todo.id)}></FontAwesomeIcon> 
+                         </div>
+                         <div className="carrier">
+                        <li key={todo.id} onClick={()=>{navigate("/FullTodoList", {state:{j}}
+                             )
+                             }
+                             }
+                        >
+                           
                             {
                                  l.length >  11 ?
                                  l.slice(0, 11) : l
                             }     
           {/* <Link to="/FullTodoList" state={j} >atHomet</Link> */}
-                        </li>              
+                        </li> 
+                        </div>
+                        </div>
+                         </>        
                     )
                 })}
             </ul>
