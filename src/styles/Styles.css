@@ -1,5 +1,5 @@
 :root {
-    --color1: grey;
+    --color1: rgb(239, 243, 244);
     --color2: red;
 }
 
@@ -45,7 +45,7 @@ button{
 }
 
 
-.delete{
+/* .delete{
     padding: 2.5%;
     border:none;
     background-color: none;
@@ -54,31 +54,41 @@ button{
 
 .delete:hover{
     background-color: red;
-}
+} */
 
-
-
-.List > li{
+.List > .container{
+    display: flex;
+    padding: 0 0 0 .5%;
     list-style: none;
-    padding-top:2.5%;
-    padding-bottom:2.5%;
-    padding-left: 2%;
-    border-bottom: .5px solid black;
 }
 
-.List > li:nth-child(1){
-    margin-top: 2%;
+.List > .container> .clicked{
+    padding-left:2%;
+    padding-top: 4%;
+    flex-basis: 10%;
 }
 
-.List > li:hover{
-    background-color: grey;
+.List > .container> .clicked:hover{
+    --color2: red;
 }
 
+.List > .container> .carrier {
+    flex-basis: 90%;
+}
 
-/* Styling for FullTodoList */
+.List > .container> .carrier > li{
+    padding:4%;
+    border-bottom:1px solid #ddd;
+}
+
+ li:hover{
+    background-color: var( --color1);
+}
+
 .fullTodoList{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
